@@ -1,0 +1,77 @@
+@import "../simple-style-core/core";
+
+body
+{
+	font-family:@base-font-family;
+}
+
+p, h1, h2, h3, h4
+{
+	&:not(.text-indent)
+	{
+		margin:0;
+	}
+}
+
+p
+{
+	font-size:@base-font-size-p;
+	padding:15px;
+	.media-dm(@media-desktop-sm, { font-size:14px; padding:5px});
+
+	.responsive-text(@base-font-size-p);
+}
+
+h1
+{
+	font-size:@base-font-size-h1;
+
+	.responsive-text(@base-font-size-h1);
+}
+
+h2
+{
+	font-size:@base-font-size-h2;
+
+	.responsive-text(@base-font-size-h2);
+}
+
+h3
+{
+	font-size:@base-font-size-h3;
+
+	.media-dm(@media-desktop-sm, { font-size:20px; });
+
+	.responsive-text(@base-font-size-h3);
+}
+
+h4
+{
+	font-size:@base-font-size-h4;
+
+	.media-dm(@media-desktop-sm, { font-size:16px; });
+
+	.responsive-text(@base-font-size-h4);
+}
+
+.label
+{
+	padding:@base-padding/2 @base-padding;
+	background:darken(@base-background-color, 5%);
+	.border-radius(7px);
+
+	.generate-states(@index:1) when (@index =< length(@states))
+	{
+		@state:extract(@states, @index);
+		@state-color:extract(@states-color, @index);
+
+		&-@{state}
+		{
+			color:@control-text-color;
+			background-color:darken(@state-color, 5%);
+		}
+
+		.generate-states(@index + 1);
+	}
+	.generate-states(1);
+}

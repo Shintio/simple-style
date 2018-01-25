@@ -1,0 +1,137 @@
+body {
+  font-family: "Helvetica";
+}
+p:not(.text-indent),
+h1:not(.text-indent),
+h2:not(.text-indent),
+h3:not(.text-indent),
+h4:not(.text-indent) {
+  margin: 0;
+}
+p {
+  font-size: 19px;
+  padding: 15px;
+}
+@media (max-width: 1024px) {
+  p {
+    font-size: 14px;
+    padding: 5px;
+  }
+}
+p.responsive {
+  font-size: 1.1875vw;
+}
+@media (max-width: 1024px) {
+  p.responsive {
+    font-size: 2.11111111vw;
+  }
+}
+@media (max-width: 425px) {
+  p.responsive {
+    font-size: 4.75vw;
+  }
+}
+h1 {
+  font-size: 40px;
+}
+h1.responsive {
+  font-size: 2.5vw;
+}
+@media (max-width: 1024px) {
+  h1.responsive {
+    font-size: 4.44444444vw;
+  }
+}
+@media (max-width: 425px) {
+  h1.responsive {
+    font-size: 10vw;
+  }
+}
+h2 {
+  font-size: 33px;
+}
+h2.responsive {
+  font-size: 2.0625vw;
+}
+@media (max-width: 1024px) {
+  h2.responsive {
+    font-size: 3.66666667vw;
+  }
+}
+@media (max-width: 425px) {
+  h2.responsive {
+    font-size: 8.25vw;
+  }
+}
+h3 {
+  font-size: 27px;
+}
+@media (max-width: 1024px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+h3.responsive {
+  font-size: 1.6875vw;
+}
+@media (max-width: 1024px) {
+  h3.responsive {
+    font-size: 3vw;
+  }
+}
+@media (max-width: 425px) {
+  h3.responsive {
+    font-size: 6.75vw;
+  }
+}
+h4 {
+  font-size: 22px;
+}
+@media (max-width: 1024px) {
+  h4 {
+    font-size: 16px;
+  }
+}
+h4.responsive {
+  font-size: 1.375vw;
+}
+@media (max-width: 1024px) {
+  h4.responsive {
+    font-size: 2.44444444vw;
+  }
+}
+@media (max-width: 425px) {
+  h4.responsive {
+    font-size: 5.5vw;
+  }
+}
+.label {
+  padding: 7.5px 15px;
+  background: #f2f2f2;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.label-primary {
+  color: #ffffff;
+  background-color: #2d6da3;
+}
+.label-success {
+  color: #ffffff;
+  background-color: #398439;
+}
+.label-cancel {
+  color: #ffffff;
+  background-color: #ac2925;
+}
+.label-warning {
+  color: #ffffff;
+  background-color: #d58512;
+}
+.label-info {
+  color: #ffffff;
+  background-color: #269abd;
+}

@@ -1,0 +1,145 @@
+@import "../simple-style-core/core";
+
+body
+{
+	padding:0;
+	margin:0;
+
+	& > .wrap
+	{
+		padding:0;
+		margin:0;
+	}
+}
+
+.container,
+.container-col
+{
+	.flex-row(flex-start, stretch);
+	.box-sizing(border-box);
+
+	&-xs, &-sm, &-lg, &-xl
+	{
+		.flex-row(flex-start, stretch);
+		.box-sizing(border-box);
+	}
+
+	&-xs
+	{
+		.media-dm(@media-mobile-lg, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+	&-sm
+	{
+		.media-dm(@media-tablet, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+	&-lg
+	{
+		.media-dm(@media-desktop-sm, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+	&-xl
+	{
+		.media-dm(@media-desktop-lg, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+}
+
+.container-row
+{
+	.flex-column(flex-start, stretch);
+	.box-sizing(border-box);
+
+	&-xs, &-sm, &-lg, &-xl
+	{
+		.flex-column(flex-start, stretch);
+		.box-sizing(border-box);
+	}
+
+	&-xs
+	{
+		.media-dm(@media-mobile, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+	&-sm
+	{
+		.media-dm(@media-tablet, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+	&-lg
+	{
+		.media-dm(@media-desktop-sm, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+	&-xl
+	{
+		.media-dm(@media-desktop-lg, { .flex-multi-row(flex-start, stretch, flex-start); });
+	}
+}
+
+.container-bar
+{
+	.flex-multi-row(flex-start, stretch, flex-start);
+	.box-sizing(border-box);
+}
+
+.container-bar-between
+{
+	.flex-multi-row(space-between, stretch, flex-start);
+	.box-sizing(border-box);
+}
+
+.col,
+.row
+{
+	padding:@base-padding;
+	width:100%;
+	.box-sizing(border-box);
+	.generate-modifiers(@index:1) when (@index =< 10)
+	{
+		&-@{index}
+		{
+			padding:@base-padding;
+			.box-sizing(border-box);
+			width:unit(@index*10, %);
+		}
+
+		.generate-modifiers(@index + 1);
+	}
+
+	.generate-modifiers();
+}
+
+.bar
+{
+	padding:@base-padding;
+	.box-sizing(border-box);
+	.generate-modifiers(@index:1) when (@index =< 10)
+	{
+		&-@{index}
+		{
+			padding:@base-padding;
+			width:unit(@index*10, %);
+			.box-sizing(border-box);
+		}
+
+		.generate-modifiers(@index + 1);
+	}
+
+	.generate-modifiers();
+}
+
+.card
+{
+	padding:@base-padding;
+	.card-box(25%);
+	.box-sizing(border-box);
+
+	.generate-modifiers(@index:1) when (@index =< 10)
+	{
+		&-@{index}
+		{
+			padding:@base-padding;
+			.card(25%);
+			.box-sizing(border-box);
+		}
+
+		.generate-modifiers(@index + 1);
+	}
+
+	.generate-modifiers();
+}

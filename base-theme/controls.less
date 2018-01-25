@@ -1,0 +1,69 @@
+@import "../simple-style-core/core";
+
+.btn
+{
+	height:@control-height;
+	margin:0 @control-height/10;
+	padding:@base-padding/2 @base-padding;
+	border:1px solid darken(@base-background-color, 15%);
+	background:@base-background-color;
+	font-size:@base-font-size;
+	.font-normal();
+	.border-radius(3px);
+
+	.hover({ background-color:darken(@base-background-color, 5%); });
+	.active({ background-color:darken(@base-background-color, 10%); });
+
+	.generate-states(@index:1) when (@index =< length(@states))
+	{
+		@state:extract(@states, @index);
+		@state-color:extract(@states-color, @index);
+
+		&-@{state}
+		{
+			color:@control-text-color;
+			background-color:@state-color;
+			border:1px solid darken(@state-color, 15%);
+			.hover({ background-color:darken(@state-color, 5%); });
+			.active({ background-color:darken(@state-color, 10%); });
+		}
+
+		.generate-states(@index + 1);
+	}
+	.generate-states(1);
+
+	&:focus,
+	&:active
+	{
+		outline:none;
+	}
+
+
+	&-xl
+	{
+		height:@control-height*1.5;
+		padding:@base-padding/2*1.5 @base-padding*1.5;
+		font-size:@base-font-size*1.5;
+	}
+
+	&-lg
+	{
+		height:@control-height*1.2;
+		padding:@base-padding/2*1.2 @base-padding*1.2;
+		font-size:@base-font-size*1.2;
+	}
+
+	&-sm
+	{
+		height:@control-height/1.2;
+		padding:@base-padding/2/1.2 @base-padding/1.2;
+		font-size:@base-font-size/1.2;
+	}
+
+	&-xs
+	{
+		height:@control-height/1.5;
+		padding:@base-padding/2/1.5 @base-padding/1.5;
+		font-size:@base-font-size/1.5;
+	}
+}
